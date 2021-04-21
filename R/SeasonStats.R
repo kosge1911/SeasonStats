@@ -565,4 +565,4 @@ allteams <- function(games){
   print(unique(games$Team.1))
 }
 GermanBundesliga <- read.csv("de.1.csv", encoding = "UTF-8")
-PremierLeague <- read.csv("de.1.csv", encoding = "UTF-8")
+PremierLeague <- read.csv("en.1.csv", encoding = "UTF-8")
