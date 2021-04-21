@@ -152,8 +152,9 @@ lplot <- function(games){
   temp1 <- rep(1, length(unique(games$Round)))
   names(temp1) <- names(temp)
   temp1 <- as.matrix(temp1)
-  colorsall <- c("red", "darkgreen", "red4", "darkred", "yellow", "green", "black", "white", "red1", "red2",
-                 "red3", "firebrick", "forestgreen", "mediumblue", "blue3", "blue", "cyan3", "blue4", "grey", "beige")
+  colorsall <- c("red", "green", "blue", "black", "yellow", "magenta", "grey", "orange", "cyan", "seagreen",
+                 "darkred", "darkgreen", "darkblue", "yellow4", "darkmagenta", "darkgrey", "darkcyan", "darkseagreen",
+                 "darkorange", "beige")
   farben <- data.frame(Teams = unique(games$Team.1), farben = colorsall[1:length(unique(games$Team.1))])
   teamfarben <- rep(0, max(unique(games$Round)))
   for(i in 1:length(unique(games$Team.1))){
@@ -180,8 +181,9 @@ lplot <- function(games){
   names(temp3) <- names(temp2)
   temp3 <- as.matrix(temp3)
 
-  colorsall <- c("red", "darkgreen", "red4", "darkred", "yellow", "green", "black", "white", "red1", "red2",
-                 "red3", "firebrick", "forestgreen", "mediumblue", "blue3", "blue", "cyan3", "blue4", "grey", "beige")
+  colorsall <- c("red", "green", "blue", "black", "yellow", "magenta", "grey", "orange", "cyan", "seagreen",
+                 "darkred", "darkgreen", "darkblue", "yellow4", "darkmagenta", "darkgrey", "darkcyan", "darkseagreen",
+                 "darkorange", "beige")
   farben <- data.frame(Teams = unique(games$Team.1), farben = colorsall[1:length(unique(games$Team.1))])
   teamfarben <- rep(0, max(unique(games$Round)))
   for(i in 1:length(unique(games$Team.1))){
