@@ -218,7 +218,7 @@ crosstab <- function(games){
       }
     }
   }
-  print(d)
+  return(d)
 }
 HAtable <- function(games, type = "Home"){
 
