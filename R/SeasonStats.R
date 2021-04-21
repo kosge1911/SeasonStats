@@ -118,22 +118,24 @@ standingplot <- function(games, TEAM = NULL){
          type = "n", xlab = NA, ylab = "Position", xaxt = "n", yaxt = "n", main = "Round")
     axis(3, at = 1:((length(unique(games$Team.2)) - 1) * 2), cex.axis = 0.5)
     axis(2, at = 1:length(unique(games$Team.1)), cex.axis = 0.5)
-
+    legend(21, unique(games$Team.1), col = colorsall, pch = 20, ncol = 3, bty = "n")
+    par(xpd = FALSE)
+    abline(h = 1:length(unique(games$Team.1)), col = "grey")
     for(i in 1:length(unique(games$Team.1))){
       points(1:((length(unique(games$Team.2)) - 1) * 2), a[i, ], type = "o", col = colorsall[i],
-             pch = 19, cex = 0.5)
+             pch = 19, cex = 0.75)
     }
-    legend(21, unique(games$Team.1), col = colorsall, pch = 20, ncol = 3, bty = "n")
   }
   else{
     temp <- rep(0, (length(unique(games$Team.2)) - 1) * 2)
-    par(mar = c(4, 4, 4, 4), xpd = TRUE)
+    par(mar = c(4, 4, 4, 4), xpd = FALSE)
     for(i in 1:((length(unique(games$Team.2)) - 1) * 2)){
       temp[i] <- league(games, i)$Position[league(games, i)$Team == TEAM]
       plot(1:((length(unique(games$Team.2)) - 1) * 2), temp, type = "o", ylim = c(length(unique(games$Team.1)), 1),
            pch = 19, xaxt = "n", yaxt = "n", main = paste("Position", TEAM), xlab = "Round", ylab = "Position")
       axis(1, at = 1:((length(unique(games$Team.2)) - 1) * 2), cex.axis = 0.5)
       axis(2, at = 1:length(unique(games$Team.1)), cex.axis = 0.5)
+      abline(h = 1:length(unique(games$Team.1)))
     }
   }
 }
