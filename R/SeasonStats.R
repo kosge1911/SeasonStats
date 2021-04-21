@@ -110,11 +110,12 @@ standingplot <- function(games, TEAM = NULL){
         a[j, i] <- league(games, i)$Position[league(games, i)$Team == rownames(a)[j]]
       }
     }
-    colorsall <- c("red", "darkgreen", "red4", "darkred", "yellow", "green", "black", "magenta", "red1", "red2",
-                   "red3", "firebrick", "forestgreen", "mediumblue", "blue3", "blue", "cyan3", "blue4")
-    par(mar = c(9, 4, 2, 2), xpd = TRUE)
-    plot(1:((length(unique(games$Team.2)) - 1) * 2), 1:((length(unique(games$Team.2)) - 1) * 2), ylim = c(18, 1),
-         type = "n", xlab = NA, ylab = "Position", xaxt = "n", yaxt = "n")
+    colorsall <- c("red", "green", "blue", "black", "yellow", "magenta", "grey", "orange", "cyan", "seagreen",
+                   "darkred", "darkgreen", "darkblue", "yellow4", "darkmagenta", "darkgrey", "darkcyan", "darkseagreen",
+                   "darkorange", "beige")
+    par(mar = c(10, 4, 5, 2), xpd = TRUE)
+    plot(1:((length(unique(games$Team.2)) - 1) * 2), 1:((length(unique(games$Team.2)) - 1) * 2), ylim = c(length(unique(games$Team.1)), 1),
+         type = "n", xlab = NA, ylab = "Position", xaxt = "n", yaxt = "n", main = "Round")
     axis(3, at = 1:((length(unique(games$Team.2)) - 1) * 2), cex.axis = 0.5)
     axis(2, at = 1:length(unique(games$Team.1)), cex.axis = 0.5)
 
@@ -122,7 +123,7 @@ standingplot <- function(games, TEAM = NULL){
       points(1:((length(unique(games$Team.2)) - 1) * 2), a[i, ], type = "o", col = colorsall[i],
              pch = 19, cex = 0.5)
     }
-    legend(20, unique(games$Team.1), col = colorsall, pch = 20, ncol = 3, bty = "n")
+    legend(21, unique(games$Team.1), col = colorsall, pch = 20, ncol = 3, bty = "n")
   }
   else{
     temp <- rep(0, (length(unique(games$Team.2)) - 1) * 2)
