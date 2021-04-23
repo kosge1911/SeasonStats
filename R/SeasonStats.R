@@ -345,7 +345,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
 
         ggplot(data_freq, aes(x = rownames(data_freq), y = Prob)) +
           geom_histogram(stat = "identity", fill = "blue") +
-          labs(title = "Goals scored per Team in each Match", x = "Goals", y = "Probability")
+          labs(title = "Relative frequences of goals in one Match", x = "Goals", y = "Frequency")
 
       } else if(isTRUE(distribution == "Poisson")){
         dist <- table(c(games$total))
