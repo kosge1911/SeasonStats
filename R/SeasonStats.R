@@ -374,7 +374,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Relative Freqencies vs. Poisson Distribution", x = "Goals", y = "Probability") +
+          labs(title = "Relative freqencies vs. Poisson Distribution", x = "Goals", y = "Probability") +
           scale_color_discrete(name = "", labels = c("RF", "Poi"))
 
       } else if(isTRUE(distribution == "Normal")){
@@ -406,7 +406,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Relative Freqencies vs. Normal Distribution", x = "Goals", y = "Probability") +
+          labs(title = "Relative freqencies vs. Normal Distribution", x = "Goals", y = "Probability") +
           scale_color_discrete(name = "", labels = c("RF", "Norm"))
       }
     } else{
@@ -432,7 +432,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
 
         ggplot(data_freq, aes(x = rownames(data_freq), y = Prob)) +
           geom_histogram(stat = "identity", fill = "blue") +
-          labs(title = "Relative Frequencies of goals socred per Team in one Match", x = "Goals", y = "Frequency")
+          labs(title = "Relative frequencies of goals socred per team in one Match", x = "Goals", y = "Frequency")
       } else if(isTRUE(distribution == "Normal")){
         dist <- table(c(games$awaygoal, games$homegoal))
 
@@ -462,7 +462,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Relative Freqencies vs. Normal Distribution", x = "Goals", y = "Frequency") +
+          labs(title = "Relative freqencies vs. Normal Distribution", x = "Goals", y = "Frequency") +
           scale_color_discrete(name = "", labels = c("RF", "Norm"))
       }
       else if(isTRUE(distribution == "Poisson")){
@@ -490,7 +490,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Relative Freqencies vs. Poisson Distribution", x = "Goals", y = "Frequency") +
+          labs(title = "Relative freqencies vs. Poisson Distribution", x = "Goals", y = "Frequency") +
           scale_color_discrete(name = "", labels = c("RF", "Poi"))
       }
     }
@@ -518,7 +518,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = paste("Relative Frequencies vs. Poisson Distribution -", TEAM, sep = " "), x = "Goals", y = "Probability") +
+          labs(title = paste("Relative frequencies vs. Poisson Distribution -", TEAM, sep = " "), x = "Goals", y = "Probability") +
           scale_color_discrete(name = "", labels = c("RF", "Poi"))
 
       } else if(isTRUE(distribution == "Normal")){
@@ -548,7 +548,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = paste("Relative Frequencies vs. Normal Distribution -", TEAM, sep = " "), x = "Goals", y = "Probability") +
+          labs(title = paste("Relative frequencies vs. Normal Distribution -", TEAM, sep = " "), x = "Goals", y = "Probability") +
           scale_color_discrete(name = "", labels = c("RF", "Norm"))
       }
       else{
@@ -564,7 +564,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
         rownames(data_freq) <- 0:max(games$awaygoal, games$homegoal)
         ggplot(data_freq, aes(x = rownames(data_freq), y = Prob)) +
           geom_histogram(stat = "identity", fill = "blue") +
-          labs(title = paste("Relative Frequencies of Goals:", TEAM, sep = " "), x = "Goals", y = "Frequency")
+          labs(title = paste("Relative frequencies of Goals:", TEAM, sep = " "), x = "Goals", y = "Frequency")
       }
     }
   }
