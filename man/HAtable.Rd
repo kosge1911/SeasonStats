@@ -24,14 +24,12 @@ Choose between "Home", to show the hometable or "Away", to show the awaytable
 Georg Kosso
 }
 \examples{
-## load all games of the Bundesliga Season of 2019/20
-data <- read.csv("de.1.csv", encoding = "UTF-8")
 
-## Create the hometable
-HAtable(games, type = "Home")
+## Create the home table of the German Bundesliga
+HAtable(GermanBundesliga, type = "Home")
 
-## Create the awaytable
-HAtable(games, type = "away")
+## Create the away table
+HAtable(German Bundesliga, type = "away")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
