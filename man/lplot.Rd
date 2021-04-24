@@ -5,7 +5,7 @@
 Plot of leader and last in league
 }
 \description{
-This function creates a plot that shows the leader and the last Team in every Round.
+This function creates a plot that shows the leader and the last team in every Round.
 }
 \usage{
 lplot(games)
@@ -25,11 +25,8 @@ The colors may not match with the traditional colors of the team
 }
 
 \examples{
-## load all games of the Bundesliga Season of 2019/20
-data <- read.csv("de.1.csv", encoding = "UTF-8")
-
 ## Create plot
-lplot(data)
+lplot(GermanBundesliga)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
