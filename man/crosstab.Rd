@@ -20,11 +20,8 @@ Data frame with all played matches
 Georg Kosso
 }
 \examples{
-## load all games of the Bundesliga Season of 2019/20
-data <- read.csv("de.1.csv", encoding = "UTF-8")
-
 ## Create the crosstable
-crosstab(data)
+crosstab(GermanBundesliga)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
