@@ -23,9 +23,6 @@ Georg Kosso
 }
 
 \examples{
-## load all games of the Bundesliga Season of 2019/20
-data <- read.csv("de.1.csv", encoding = "UTF-8")
-
 ## Show values of Borussia Dortmund after 18 Rounds
 team("Borussia Dortmund", 18)
 
