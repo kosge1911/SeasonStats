@@ -572,5 +572,15 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
 allteams <- function(games){
   print(unique(games$Team.1))
 }
-GermanBundesliga <- read.csv("de.1.csv", encoding = "UTF-8")
-PremierLeague <- read.csv("en.1.csv", encoding = "UTF-8")
+GermanBundesliga <- read.csv("de.1.csv", encoding = "UTF-8") # German Bundesliga Season 2019/20
+PremierLeague <- read.csv("eng.1.csv", encoding = "UTF-8") # Premier League Season 2017/18
+PrimeraDivision <- read.csv("es.1.csv", encodin = "UTF-8") # Premiera Division Season 2017/18
+
+Seasons <- function(){
+  
+  # Shows the included data sets
+  
+  print("German Bundesliga Season 2019/20 as GermanBundesliga")
+  print("Premier League Season 2017/18 as PremierLeague")
+  print("remiera Division Season 2017/18 as PrimeraDivision")
+}
