@@ -1,5 +1,5 @@
-\name{league}
-\alias{league}
+\name{league.table}
+\alias{league.table}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Creating the table of a season
@@ -8,7 +8,7 @@ Creating the table of a season
 Creates a the table based on all played matches. You can also pick one special round to see the standing at one selected round.
 }
 \usage{
-league(games, ROUND = "Last Round")
+league.table(games, ROUND = "Last Round")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,14 +25,11 @@ Georg Kosso
 
 \examples{
 
-## load all games of the Bundesliga Season of 2019/20
-data <- read.csv("de.1.csv", encoding = "UTF-8")
-
 ## table after 18 rounds
-league(data, ROUND = 18)
+league.table(GermanBudesliga, ROUND = 18)
 
 ## final table
-league(data)
+league.table(data)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
