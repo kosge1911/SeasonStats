@@ -1,4 +1,4 @@
-league <- function(games, ROUND = (length(unique(games$Team.2)) - 1) * 2){
+league.table <- function(games, ROUND = (length(unique(games$Team.2)) - 1) * 2){
 
   # A function that creates the table of the season.
   # games ... dataframe with all games of one season
@@ -309,6 +309,7 @@ HAtable <- function(games, type = "Home"){
     return(df)
   }
 }
+
 Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FALSE){
   library(ggplot2)
 
@@ -345,7 +346,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
 
         ggplot(data_freq, aes(x = rownames(data_freq), y = Prob)) +
           geom_histogram(stat = "identity", fill = "blue") +
-          labs(title = "Relative frequences of goals in one Match", x = "Goals", y = "Frequency")
+          labs(title = "Relative frequencies of goals in one Match", x = "Goals", y = "Frequency")
 
       } else if(isTRUE(distribution == "Poisson")){
         dist <- table(c(games$total))
@@ -373,8 +374,8 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(x = "Goals", y = "Probability") +
-          scale_color_discrete(name = "", labels = c("Poi", "Mean"))
+          labs(title = "Relative Freqencies vs. Poisson Distribution", x = "Goals", y = "Probability") +
+          scale_color_discrete(name = "", labels = c("RF", "Poi"))
 
       } else if(isTRUE(distribution == "Normal")){
         dist <- table(c(games$total))
@@ -405,8 +406,8 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(x = "Goals", y = "Probability") +
-          scale_color_discrete(name = "", labels = c("Norm", "Mean"))
+          labs(title = "Relative Freqencies vs. Normal Distribution", x = "Goals", y = "Probability") +
+          scale_color_discrete(name = "", labels = c("RF", "Norm"))
       }
     } else{
       stop("Can't use TEAM argument, when in.match = TRUE")
@@ -431,7 +432,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
 
         ggplot(data_freq, aes(x = rownames(data_freq), y = Prob)) +
           geom_histogram(stat = "identity", fill = "blue") +
-          labs(title = "Goals scored per Team in each Match", x = "Goals", y = "Probability")
+          labs(title = "Relative Frequencies of goals socred per Team in one Match", x = "Goals", y = "Frequency")
       } else if(isTRUE(distribution == "Normal")){
         dist <- table(c(games$awaygoal, games$homegoal))
 
@@ -461,8 +462,8 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Density of Goals scored per Team in each Match", x = "Goals", y = "Probability") +
-          scale_color_discrete(name = "", labels = c("Norm", "Mean"))
+          labs(title = "Relative Freqencies vs. Normal Distribution", x = "Goals", y = "Frequency") +
+          scale_color_discrete(name = "", labels = c("RF", "Norm"))
       }
       else if(isTRUE(distribution == "Poisson")){
         dist <- table(c(games$awaygoal, games$homegoal))
@@ -489,8 +490,8 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Density of Goals scored per Team in each Match", x = "Goals", y = "Probability") +
-          scale_color_discrete(name = "", labels = c("Poi", "Mean"))
+          labs(title = "Relative Freqencies vs. Poisson Distribution", x = "Goals", y = "Frequency") +
+          scale_color_discrete(name = "", labels = c("RF", "Poi"))
       }
     }
     else {
@@ -517,8 +518,8 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(x = "Goals", y = "Probability") +
-          scale_color_discrete(name = "", labels = c("Poi", "Mean"))
+          labs(title = paste("Relative Frequencies vs. Poisson Distribution -", TEAM, sep = " "), x = "Goals", y = "Probability") +
+          scale_color_discrete(name = "", labels = c("RF", "Poi"))
 
       } else if(isTRUE(distribution == "Normal")){
         dist <- table(c(games$homegoal[games$Team.1 == TEAM], games$awaygoal[games$Team.2 == TEAM]))
@@ -547,8 +548,8 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Density of Goals scored per Team in each Match", x = "Goals", y = "Probability") +
-          scale_color_discrete(name = "", labels = c("Norm", "Mean"))
+          labs(title = paste("Relative Frequencies vs. Normal Distribution -", TEAM, sep = " "), x = "Goals", y = "Probability") +
+          scale_color_discrete(name = "", labels = c("RF", "Norm"))
       }
       else{
         dist <- table(c(games$homegoal[games$Team.1 == TEAM], games$awaygoal[games$Team.2 == TEAM]))
@@ -563,7 +564,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
         rownames(data_freq) <- 0:max(games$awaygoal, games$homegoal)
         ggplot(data_freq, aes(x = rownames(data_freq), y = Prob)) +
           geom_histogram(stat = "identity", fill = "blue") +
-          labs(title = paste("Distribution of Goals:", TEAM, sep = " "), x = "Goals", y = "Probability")
+          labs(title = paste("Relative Frequencies of Goals:", TEAM, sep = " "), x = "Goals", y = "Frequency")
       }
     }
   }
