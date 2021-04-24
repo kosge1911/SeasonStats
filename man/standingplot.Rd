@@ -13,7 +13,7 @@ standingplot(games, TEAM = NULL)
 \arguments{
   \item{games}{Data frame with all played matches
 }
-  \item{TEAM}{Shows trend of a specific Team. If not a team given, the trend of all teams will be shown. To see all possible teams use \bold{allteams(games)}
+  \item{TEAM}{Shows trend of a specific team. If no team is given, the trend of all teams will be shown. To see all possible teams use \bold{allteams(games)}
 }
 }
 
@@ -24,14 +24,11 @@ Georg Kosso
 It will take around 30-50 seconds to show the trends of all teams!
 }
 \examples{
-## load all games of the Bundesliga Season of 2019/20
-data <- read.csv("de.1.csv", encoding = "UTF-8")
-
 ## Show trends of all teams
-standingplot(data)
+standingplot(GermanBundesliga)
 
 ## Show trend of one specific team
-standingplot(data, TEAM = "Werder Bremen")
+standingplot(GermanBundesliga, TEAM = "Werder Bremen")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
