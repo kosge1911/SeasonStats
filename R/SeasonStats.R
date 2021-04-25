@@ -127,7 +127,7 @@ team <- function(t, ROUND = (length(unique(data$Team.2)) - 1) * 2){
   # Using Fuzzy Matching
   temp <- unlist(lapply(t, agrep, x = unique(data$Team.1), value = TRUE, max = 1))
 
-  res <- league(data, ROUND)[league(data, ROUND)$Team == temp, ]
+  res <- league.table(data, ROUND)[league.table(data, ROUND)$Team == temp, ]
   return(res)
 }
 
@@ -153,7 +153,7 @@ standingplot <- function(games, TEAM = NULL){
     # Fill the empty data frame with the positions of every team in every round
     for(j in 1:length(unique(games$Team.1))){
       for(i in 1:((length(unique(games$Team.2)) - 1) * 2)){
-        a[j, i] <- league(games, i)$Position[league(games, i)$Team == rownames(a)[j]]
+        a[j, i] <- league.table(games, i)$Position[league.table(games, i)$Team == rownames(a)[j]]
       }
     }
     
@@ -184,7 +184,7 @@ standingplot <- function(games, TEAM = NULL){
     
     # Only compute the position in every round of one team
     for(i in 1:((length(unique(games$Team.2)) - 1) * 2)){
-      temp[i] <- league(games, i)$Position[league(games, i)$Team == TEAM]
+      temp[i] <- league.table(games, i)$Position[league.table(games, i)$Team == TEAM]
       plot(1:((length(unique(games$Team.2)) - 1) * 2), temp, type = "o", ylim = c(length(unique(games$Team.1)), 1),
            pch = 19, xaxt = "n", yaxt = "n", main = paste("Position", TEAM), xlab = "Round", ylab = "Position")
       axis(1, at = 1:((length(unique(games$Team.2)) - 1) * 2), cex.axis = 0.5)
@@ -205,7 +205,7 @@ lplot <- function(games){
   # Compute the teams that are on the first position in every round
   temp <- rep(0, length(unique(games$Round)))
   for(i in 1:length(unique(games$Round))){
-    temp[i] <- league(games, i)$Team[league(games, i)$Position == 1]
+    temp[i] <- league.table(games, i)$Team[league.table(games, i)$Position == 1]
   }
   
   # Edit everything to create a barplot
@@ -242,7 +242,7 @@ lplot <- function(games){
   # Compute the teams that are on the last position in every round
   temp2 <- rep(0, length(unique(games$Round)))
   for(i in 1:length(unique(games$Round))){
-    temp2[i] <- league(games, i)$Team[league(games, i)$Position == length(unique(games$Team.1))]
+    temp2[i] <- league.table(games, i)$Team[league.table(games, i)$Position == length(unique(games$Team.1))]
   }
   names(temp2) <- temp2
   temp3 <- rep(1, length(unique(games$Round)))
