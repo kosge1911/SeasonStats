@@ -163,23 +163,24 @@ standingplotfull <- function(games, TEAM = NULL){
                    "darkorange", "beige")
     
     # Plot the data
-    par(mar = c(9, 4, 2, 2), xpd = TRUE)
-    plot(1:((length(unique(games$Team.2)) - 1) * 2), 1:((length(unique(games$Team.2)) - 1) * 2), ylim = c(18, 1),
-         type = "n", xlab = NA, ylab = "Position", xaxt = "n", yaxt = "n")
+    par(mar = c(10, 4, 5, 2), xpd = TRUE)
+    plot(1:((length(unique(games$Team.2)) - 1) * 2), 1:((length(unique(games$Team.2)) - 1) * 2), ylim = c(length(unique(games$Team.1)), 1),
+         type = "n", xlab = NA, ylab = "Position", xaxt = "n", yaxt = "n", main = "Round")
     axis(3, at = 1:((length(unique(games$Team.2)) - 1) * 2), cex.axis = 0.5)
     axis(2, at = 1:length(unique(games$Team.1)), cex.axis = 0.5)
-
+    legend(21, unique(games$Team.1), col = colorsall, pch = 20, ncol = 3, bty = "n")
+    par(xpd = FALSE)
+    abline(h = 1:length(unique(games$Team.1)), col = "grey")
     for(i in 1:length(unique(games$Team.1))){
       points(1:((length(unique(games$Team.2)) - 1) * 2), a[i, ], type = "o", col = colorsall[i],
-             pch = 19, cex = 0.5)
+             pch = 19, cex = 0.75)
     }
-    legend(20, unique(games$Team.1), col = colorsall, pch = 20, ncol = 3, bty = "n")
   }
   
   # If a particular was given
   else{
     temp <- rep(0, (length(unique(games$Team.2)) - 1) * 2)
-    par(mar = c(4, 4, 4, 4), xpd = TRUE)
+    par(mar = c(4, 4, 4, 4), xpd = FALSE)
     
     # Only compute the position in every round of one team
     for(i in 1:((length(unique(games$Team.2)) - 1) * 2)){
@@ -188,6 +189,7 @@ standingplotfull <- function(games, TEAM = NULL){
            pch = 19, xaxt = "n", yaxt = "n", main = paste("Position", TEAM), xlab = "Round", ylab = "Position")
       axis(1, at = 1:((length(unique(games$Team.2)) - 1) * 2), cex.axis = 0.5)
       axis(2, at = 1:length(unique(games$Team.1)), cex.axis = 0.5)
+      abline(h = 1:length(unique(games$Team.1)))
     }
   }
 }
@@ -232,7 +234,7 @@ lplot <- function(games){
   }
   
   # Plot the vector with the fitting colors
-  par(mar = c(5, 4, 4, 8), xpd = TRUE, mfrow = c(1, 2))
+  par(mar = c(1, 4, 4, 8), xpd = TRUE, mfrow = c(1, 2))
   barplot(temp1, beside = FALSE, col = teamfarben, ylim = NULL, border = NA, yaxt = "n", main = "Leader")
   axis(2, at = 1:max(unique(games$Round)), las = 1, cex.axis = 0.5)
   legend(max(unique(games$Round)), unique(rownames(temp1)), col = unique(teamfarben), pch = 19, cex = 0.6)
