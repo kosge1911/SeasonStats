@@ -135,7 +135,7 @@ team <- function(t, ROUND = (length(unique(data$Team.2)) - 1) * 2){
 # Plot of table history during the whole season
 #----------------------------------------------------------------
 
-standingplotfull <- function(games, TEAM = NULL){
+standingplot <- function(games, TEAM = NULL){
 
   # Function that creates the standings for every team in every round
   # games ... data frame with all games in one season
