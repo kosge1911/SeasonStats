@@ -370,6 +370,7 @@ HAtable <- function(games, type = "Home"){
     df <- df[position, ]
     df$Position <- 1:length(unique(games$Team.1))
     df$Played <- max(games$Round) / 2
+    rownames(df) <- NULL
     return(df)
   }
 
@@ -406,6 +407,7 @@ HAtable <- function(games, type = "Home"){
     df <- df[position, ]
     df$Position <- 1:length(unique(games$Team.1))
     df$Played <- max(games$Round) / 2
+    rownames(df) <- NULL
     return(df)
   }
 }
