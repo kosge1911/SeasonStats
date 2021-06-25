@@ -418,7 +418,7 @@ HAtable <- function(games, type = "Home"){
 # Show relative frequencies of goals and compare with the Normal or Poisson distribution
 #-----------------------------------------------------------------------------------------
 
-Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FALSE){
+Freqgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FALSE){
 
   # This function shows the relative frequencies of the goals and can also compare them with
   # the Normal and Poisson distribution
@@ -501,7 +501,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Relative freqencies vs. Poisson Distribution", x = "Goals", y = "Probability") +
+          labs(title = "Relative freqencies vs. Poisson Distribution", x = "Goals", y = "Frequency") +
           scale_color_discrete(name = "", labels = c("RF", "Poi"))
 
       } else if(isTRUE(distribution == "Normal")){
@@ -537,7 +537,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Relative freqencies vs. Normal Distribution", x = "Goals", y = "Probability") +
+          labs(title = "Relative freqencies vs. Normal Distribution", x = "Goals", y = "Frequency") +
           scale_color_discrete(name = "", labels = c("RF", "Norm"))
       }
     } else{
@@ -633,7 +633,7 @@ Probgoalplot <- function(games, TEAM = NULL, distribution = NULL, in.match = FAL
           geom_line() +
           geom_line(aes(y = Prob, color = "blue"), size = 1) +
           theme_bw() +
-          labs(title = "Density of Goals scored per Team in each Match", x = "Goals", y = "Probability") +
+          labs(title = "Density of Goals scored per Team in each Match", x = "Goals", y = "Frequency") +
           scale_color_discrete(name = "", labels = c("Poi", "Mean"))
       }
     }
