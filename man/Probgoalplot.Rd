@@ -1,5 +1,5 @@
-\name{Probgoalplot}
-\alias{Probgoalplot}
+\name{Freqgoalplot}
+\alias{Freqgoalplot}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Distribution of goals
@@ -8,7 +8,7 @@ Distribution of goals
 This function creates a plot of the distribution of goals scored in each match
 }
 \usage{
-Probgoalplot(games, TEAM = NULL, distribution = NULL, in.match = FALSE)
+Freqgoalplot(games, TEAM = NULL, distribution = NULL, in.match = FALSE)
 }
 \arguments{
   \item{games}{
@@ -40,19 +40,19 @@ Georg Kosso
 
 \examples{
 ## Create barplot of relative frequencies of goals scored per team in each match
-Probgoalplot(GermanBundesliga)
+Freqgoalplot(GermanBundesliga)
 
 ## Create barplot of relative frequencies of goals scored in each match
-Probgoalplot(GermanBundesliga, in.match = TRUE)
+Freqgoalplot(GermanBundesliga, in.match = TRUE)
 
 ## Compare the Poisson distribution with the actual distribution of goals scored in each match
-Probgoalplot(GermanBundesliga, distribution = "Poisson", in.match = TRUE)
+Freqgoalplot(GermanBundesliga, distribution = "Poisson", in.match = TRUE)
 
 ## Compare the Normal distribution with the actual distribution of goals scored by FC Augsburg
-Probgoalplot(GermanBundesliga, TEAM = "FC Augsburg", distribution = "Normal")
+Freqgoalplot(GermanBundesliga, TEAM = "FC Augsburg", distribution = "Normal")
 
 ## Create barplot of relative frequencies of goals scored by Eintracht Frankfurt
-Probgoalplot(GermanBundesliga, TEAM = "Eintracht Frankfurt")
+Freqgoalplot(GermanBundesliga, TEAM = "Eintracht Frankfurt")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
